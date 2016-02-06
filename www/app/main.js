@@ -1,3 +1,5 @@
+moment().locale('fr');
+
 var lgm = angular.module('legardemanger', [
     'ionic',
 

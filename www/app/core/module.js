@@ -25,12 +25,12 @@ module.config(function ($stateProvider) {
                 abstract: true,
                 templateUrl: 'app/core/view/tabs.html'
             })
-                .state('protected.tabs.a', {
-                    url: '/a',
+                .state('protected.tabs.stash', {
+                    url: '/stash',
                     views: {
-                        'protected-tabs-a': {
-                            templateUrl: 'app/core/view/a.html',
-                            controller: 'AController'
+                        'protected-tabs-stash': {
+                            templateUrl: 'app/core/view/stash.html',
+                            controller: 'StashController'
                         }
                     }
                 })
@@ -43,5 +43,10 @@ module.config(function ($stateProvider) {
                         }
                     }
                 })
+            .state('protected.stash-item-edit', {
+                url: '/stash-item-edit/{uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}}',
+                templateUrl: 'app/core/view/stash-item-edit.html',
+                controller: 'StashItemEditController'
+            })
     ;
 });

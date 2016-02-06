@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "node-uuid": "^1.4.7"
+    "node-uuid": "^1.4.7",
+    "moment": "~2.11.2"
   }
 }

@@ -7,6 +7,6 @@ module.controller('LoginController', function($scope, $state) {
     };
 
     $scope.signIn = function() {
-        $state.go('protected.tabs.a');
+        $state.go('protected.tabs.stash');
     }
 });

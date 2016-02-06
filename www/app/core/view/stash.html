@@ -1,0 +1,11 @@
+<ion-view view-title="Stash">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in items" ui-sref="protected.stash-item-edit({ uuid: item.uuid })">
+                <dt>{{item.label}}</dt>
+                <dd ng-if="item.expirationDate">expire dans {{item.expirationETA}}</dd>
+                <dd ng-if="item.quantity">Qté: {{item.quantity}}<span ng-if="item.quantityUnitSymbol">{{item.quantitySymbol}}</span></dd>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

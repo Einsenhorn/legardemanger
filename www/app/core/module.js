@@ -29,24 +29,47 @@ module.config(function ($stateProvider) {
                     url: '/stash',
                     views: {
                         'protected-tabs-stash': {
-                            templateUrl: 'app/core/view/stash.html',
+                            templateUrl: 'app/core/view/stash/index.html',
                             controller: 'StashController'
                         }
                     }
                 })
-                .state('protected.tabs.b', {
-                    url: '/b',
+                .state('protected.stash-item-edit', {
+                    url: '/stash-item-edit/{uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}}',
+                    templateUrl: 'app/core/view/stash/item-edit.html',
+                    controller: 'StashItemEditController'
+                })
+                .state('protected.tabs.recipes-tags', {
+                    url: '/recipes/tags',
                     views: {
-                        'protected-tabs-b': {
-                            templateUrl: 'app/core/view/b.html',
-                            controller: 'BController'
+                        'protected-tabs-recipes-tags': {
+                            templateUrl: 'app/core/view/recipes/tags.html',
+                            controller: 'RecipesTagsController'
                         }
                     }
                 })
-            .state('protected.stash-item-edit', {
-                url: '/stash-item-edit/{uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}}',
-                templateUrl: 'app/core/view/stash-item-edit.html',
-                controller: 'StashItemEditController'
-            })
+                .state('protected.tabs.recipes-search', {
+                    url: '/recipes/search',
+                    templateUrl: 'app/core/view/recipes/search.html',
+                    controller: 'RecipesSearchController'
+                })
+                .state('protected.tabs.shopping-list', {
+                    url: '/shopping/list',
+                    views: {
+                        'protected-tabs-shopping-list': {
+                            templateUrl: 'app/core/view/shopping/list.html',
+                            controller: 'ShoppingListController'
+                        }
+                    }
+                })
+                .state('protected.tabs.profile', {
+                    url: '/profile',
+                    views: {
+                        'protected-tabs-profile': {
+                            templateUrl: 'app/core/view/profile.html',
+                            controller: 'ProfileController'
+                        }
+                    }
+                })
     ;
 });

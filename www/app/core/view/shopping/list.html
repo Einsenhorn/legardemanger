@@ -1,0 +1,23 @@
+<ion-view view-title="Shopping list">
+    <ion-content>
+        <div class="list card" ng-repeat="item in list">
+            <div class="item item-avatar">
+                <img ng-src="{{item.author.url}}" />
+                <h2>{{item.name}}</h2>
+                <p>{{item.author.firstname}} {{item.author.lastname}}</p>
+            </div>
+          <div class="item item-body">
+              <p ng-repeat="ingredient in item.ingredients">
+                  + {{ingredient.label}}
+              </p>
+          </div>
+          <div class="item item-button-right">
+              .
+              <div class="buttons">
+                  <button class="button button-icon icon ion-ios-eye-outline"></button>
+                  <button class="button button-icon icon ion-ios-trash-outline"></button>
+              </div>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

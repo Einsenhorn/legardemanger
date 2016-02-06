@@ -25,8 +25,9 @@ function ItemFactory() {
 function StashService($q, ItemFactory) {
     return {
         items: [
-            ItemFactory.create('apple', Math.floor((Math.random() * 12) + 1), 'unit'),
-            ItemFactory.create('sugar', Math.floor((Math.random() * 5) + 1) * 100, 'gram')
+            ItemFactory.create('Lait', Math.floor((Math.random() * 3) + 1), 'Litre(s)'),
+            ItemFactory.create('farine', Math.floor((Math.random() * 5) + 1) * 100, 'grammes'),
+            ItemFactory.create('Oeuf', 1, 'Unite'),
         ],
         all: function() {
             var deferred = $q.defer();

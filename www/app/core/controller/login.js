@@ -2,7 +2,7 @@ var module = angular.module('lgmCoreModule');
 
 module.controller('LoginController', function($scope, $state) {
     $scope.user = {
-        username: 'foo',
+        username: 'estele',
         password: 'bar'
     };
 

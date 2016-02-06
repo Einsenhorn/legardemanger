@@ -1,0 +1,22 @@
+<ion-view view-title="Stash">
+    <ion-nav-buttons side="right">
+        <button class="button icon ion-ios-plus-outline"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in items" ui-sref="protected.stash-item-edit({ uuid: item.uuid })">
+                <dt>{{item.label}}</dt>
+                <!-- <dd ng-show="item.expiration">expire dans {{item.expiration.eta}}</dd> -->
+                <dd ng-if="item.quantity">Qté: {{item.quantity}} <span ng-if="item.quantityUnity">{{item.quantityUnity}}</span></dd>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="buttons item-button-left">
+            <button class="button button-icon icon ion-ios-trash-outline" style="font-size: 90px;"></button>
+        </div>
+        <div class="buttons item-button-right">
+            <button class="button button-icon icon ion-ios-search-strong" style="font-size: 90px;" ng-click="search()"></button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

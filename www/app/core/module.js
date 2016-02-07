@@ -50,8 +50,12 @@ module.config(function ($stateProvider) {
                 })
                 .state('protected.tabs.recipes-search', {
                     url: '/recipes/search',
-                    templateUrl: 'app/core/view/recipes/search.html',
-                    controller: 'RecipesSearchController'
+                    views: {
+                        'protected-tabs-recipes-tags': {
+                            templateUrl: 'app/core/view/recipes/search.html',
+                            controller: 'RecipesSearchController'
+                        }
+                    }
                 })
                 .state('protected.tabs.shopping-list', {
                     url: '/shopping/list',
@@ -72,4 +76,17 @@ module.config(function ($stateProvider) {
                     }
                 })
     ;
+});
+
+module.filter('range', function() {
+    return function(input, total) {
+        var i;
+
+        total = parseInt(total);
+        for (i = 0; i < total; i++) {
+            input.push(i);
+        }
+
+        return input;
+    };
 });

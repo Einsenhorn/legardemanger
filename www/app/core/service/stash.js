@@ -1,11 +1,11 @@
 var module = angular.module('lgmCoreModule');
 
-module.factory('StashService', ['$q', 'ItemFactory', StashService]);
+module.factory('StashService', ['$q', 'IngredientCategoryService', 'ItemFactory', StashService]);
 module.factory('ItemFactory', [ItemFactory]);
 
 function ItemFactory() {
     return {
-        create: function(label, quantity, quantityUnity) {
+        create: function(label, quantity, quantityUnity, category) {
             var expirationDate = moment().add(((Math.random() * 31) + 1), 'days');
 
             return {
@@ -16,18 +16,19 @@ function ItemFactory() {
                 expiration: {
                     date: expirationDate,
                     eta: expirationDate.fromNow(true)
-                }
+                },
+                category: category
             };
         }
     }
 }
 
-function StashService($q, ItemFactory) {
+function StashService($q, IngredientCategoryService, ItemFactory) {
     return {
         items: [
-            ItemFactory.create('Lait', Math.floor((Math.random() * 3) + 1), 'Litre(s)'),
-            ItemFactory.create('farine', Math.floor((Math.random() * 5) + 1) * 100, 'grammes'),
-            ItemFactory.create('Oeuf', 1, 'Unite'),
+            ItemFactory.create('Lait', Math.floor((Math.random() * 3) + 1), 'Litre(s)', IngredientCategoryService.get(1)),
+            ItemFactory.create('farine', Math.floor((Math.random() * 5) + 1) * 100, 'grammes', IngredientCategoryService.get(2)),
+            ItemFactory.create('Oeuf', 1, 'Unite', IngredientCategoryService.get(1)),
         ],
         all: function() {
             var deferred = $q.defer();

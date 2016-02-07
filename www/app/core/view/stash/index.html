@@ -4,10 +4,9 @@
     </ion-nav-buttons>
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in items" ui-sref="protected.stash-item-edit({ uuid: item.uuid })">
-                <dt>{{item.label}}</dt>
-                <!-- <dd ng-show="item.expiration">expire dans {{item.expiration.eta}}</dd> -->
-                <dd ng-if="item.quantity">Qté: {{item.quantity}} <span ng-if="item.quantityUnity">{{item.quantityUnity}}</span></dd>
+            <ion-item class="list-inset" ng-repeat="category in categories" style="background-color: {{category.color}}">
+                <dt>{{category.name}}</dt>
+                <dd>Qté: {{ (items | filter:{ category: { id: category.id } }).length }} <span ng-if="item.quantityUnity">{{item.quantityUnity}}</span></dd>
             </ion-item>
         </ion-list>
     </ion-content>
@@ -16,7 +15,8 @@
             <button class="button button-icon icon ion-ios-trash-outline" style="font-size: 90px;"></button>
         </div>
         <div class="buttons item-button-right">
-            <button class="button button-icon icon ion-ios-search-strong" style="font-size: 90px;" ng-click="search()"></button>
+            <button class="button button-icon icon ion-ios-search-strong" style="font-size: 90px;" ui-sref="protected.tabs.recipes-search">
+            </button>
         </div>
     </ion-footer-bar>
 </ion-view>
